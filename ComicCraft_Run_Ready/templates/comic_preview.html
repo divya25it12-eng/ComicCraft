@@ -1,0 +1,93 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ComicCraft - Comic Preview</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="preview">
+
+    <h1>📖 Comic Preview</h1>
+
+    <p class="subtitle">
+        Your ComicCraft story is ready!
+    </p>
+
+
+    {% if layout %}
+
+        {% for panel in layout %}
+
+        <div class="panel">
+
+            <h2>{{ panel.title }}</h2>
+
+            <div class="image-placeholder">
+                🎨
+                <br>
+                <span>AI Illustration Placeholder</span>
+            </div>
+
+            <p>
+                <strong>Scene:</strong>
+                {{ panel.scene }}
+            </p>
+
+            <p>
+                <strong>Caption:</strong>
+                {{ panel.caption }}
+            </p>
+
+            <p>
+                <strong>Narration:</strong>
+                {{ panel.narration }}
+            </p>
+
+            <p>
+                <strong>Image Prompt:</strong>
+                {{ panel.image_prompt }}
+            </p>
+
+        </div>
+
+        {% endfor %}
+
+    {% else %}
+
+        <div class="panel">
+            <h2>No Comic Data</h2>
+            <p>
+                No comic panels were generated.
+                Please go back and try again.
+            </p>
+        </div>
+
+    {% endif %}
+
+
+    <div class="actions">
+
+        <a class="button" href="/export-success">
+            📄 Download Your Comic as PDF
+        </a>
+
+        <br><br>
+
+        <a class="back" href="/">
+            ← Create Another Comic
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>
+```
